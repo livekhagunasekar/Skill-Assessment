@@ -1,0 +1,93 @@
+﻿@page
+@model Assessment_try.Pages.Index1Model
+@using Assessment_try.Pages;
+@{
+    ViewData["Title"] = "Register";
+}
+
+<style>
+    .register-container {
+        max-width: 400px;
+        margin: 3rem auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #007bff;
+        font-weight: 700;
+    }
+
+    label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: #333;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 0.6rem 0.8rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+        }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #007bff;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    p.message {
+        text-align: center;
+        margin-top: 1rem;
+        color: green;
+        font-weight: 600;
+    }
+</style>
+
+<div class="register-container">
+    <h2>@(Model.User?.Id > 0 ? "Edit User" : "Register User")</h2>
+
+    <form method="post">
+        <input type="hidden" asp-for="User.Id" />
+
+        <label asp-for="User.user_name">User Name:</label>
+        <input asp-for="User.user_name" type="text" />
+
+        <label asp-for="User.user_no">User No:</label>
+        <input asp-for="User.user_no" type="number" />
+
+        <button type="submit">@(Model.User?.Id > 0 ? "Update" : "Register")</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <p class="message">@Model.Message</p>
+    }
+</div>

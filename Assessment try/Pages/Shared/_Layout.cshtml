@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Assessment_try</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Assessment_try.styles.css" asp-append-version="true" />
+
+    <style>
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #ffc107; 
+            }
+
+            .navbar-nav .nav-link.active {
+                color: #ffd54f !important; 
+                border-bottom: 2px solid #ffd54f;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary shadow-sm mb-4">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4" asp-area="" asp-page="/Index">Hovid Berhad</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link @((ViewData["Title"]?.ToString() == "Home page") ? "active" : "")" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @((ViewData["Title"]?.ToString() == "Register") ? "active" : "")" asp-area="" asp-page="/Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @((ViewData["Title"]?.ToString() == "Users List") ? "active" : "")" asp-area="" asp-page="/UsersList">Users List</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - Skill Assessment by Livekha
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
