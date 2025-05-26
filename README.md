@@ -67,29 +67,31 @@ Assessment/
 
 ---
 
-## 🔧 How to Run the Project
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/livekhagunasekar/Skill-Assessment.git
-   cd Skill-Assessment
-2. Open the project in Visual Studio.
-
-3. Restore NuGet packages (automatically triggered in Visual Studio or run dotnet restore).
-
-4. Set the connection string in appsettings.json:
-   "ConnectionStrings": {
-  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=SkillAssessmentDb;Trusted_Connection=True;"
-}
-5. Run the application using Visual Studio or:
-   dotnet run
-
 🗃️ Restore Database from Backup
 1. Open SQL Server Management Studio (SSMS).
 2. Right-click on Databases > Restore Database...
 3. Choose Device and browse to SkillAssessment.bak.
 4. Click OK to restore.
 5. Make sure the database name matches the one in appsettings.json.
+   
+
+## 🔧 How to Run the Project (Terminal)
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/livekhagunasekar/Skill-Assessment.git
+   cd Skill-Assessment
+
+2. Restore NuGet packages: dotnet restore
+3. Restore the Database in SQL Server (SSMS)
+
+4. Update the database connection string in appsettings.json:
+   "ConnectionStrings": {
+  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=SkillAssessmentDb;Trusted_Connection=True;"
+}
+5. Build the project : dotnet build
+6. Run the project: dotnet run
+7. Visit the webform in your browser (localhost)
    
 
 🔗 GitHub Repository : https://github.com/livekhagunasekar/Skill-Assessment.git
